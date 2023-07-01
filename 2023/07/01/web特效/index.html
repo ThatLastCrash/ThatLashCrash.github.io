@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://ThatLastCrash.github.io">
-  <title>web特效——流星雨 | 个人博客</title>
+  <title>web特效 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前言大一还是能源院的时候选了一门计科的web课，那会儿对于写代码纯粹是一腔热血，虽然对于html各种语法都还不熟悉，参照着网上各种代码也能照葫芦画瓢地模仿、修改，最终实现自己想要的效果。这个流星雨特效就是参考了一个烟火特效的代码写出来的，可以说基本逻辑是差不多的。还记得是先看了很多遍别人的代码是怎么写的，函数又是怎么写的，之后修修补补改了一两个星期才做完的，最后拿去当web程序设计这门课的大作业之">
 <meta property="og:type" content="article">
-<meta property="og:title" content="web特效——流星雨">
-<meta property="og:url" content="http://thatlastcrash.github.io/2023/07/01/web%E7%89%B9%E6%95%88%E2%80%94%E2%80%94%E6%B5%81%E6%98%9F%E9%9B%A8/index.html">
+<meta property="og:title" content="web特效">
+<meta property="og:url" content="http://thatlastcrash.github.io/2023/07/01/web%E7%89%B9%E6%95%88/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="前言大一还是能源院的时候选了一门计科的web课，那会儿对于写代码纯粹是一腔热血，虽然对于html各种语法都还不熟悉，参照着网上各种代码也能照葫芦画瓢地模仿、修改，最终实现自己想要的效果。这个流星雨特效就是参考了一个烟火特效的代码写出来的，可以说基本逻辑是差不多的。还记得是先看了很多遍别人的代码是怎么写的，函数又是怎么写的，之后修修补补改了一两个星期才做完的，最后拿去当web程序设计这门课的大作业之">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509930.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509643.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011527827.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528963.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528959.png">
 <meta property="article:published_time" content="2023-07-01T05:55:14.000Z">
-<meta property="article:modified_time" content="2023-07-01T07:09:49.356Z">
+<meta property="article:modified_time" content="2023-07-01T07:45:14.340Z">
 <meta property="article:author" content="玉">
-<meta property="article:tag" content="js特效">
+<meta property="article:tag" content="动态特效">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509930.png">
   
@@ -68,7 +71,7 @@
 			</ul>
 		</nav>
 		<nav>
-			总文章数 2
+			总文章数 4
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -161,19 +164,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-web特效——流星雨" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-web特效" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      web特效——流星雨
+      web特效
     </h1>
   
 
         
-        <a href="/2023/07/01/web%E7%89%B9%E6%95%88%E2%80%94%E2%80%94%E6%B5%81%E6%98%9F%E9%9B%A8/" class="archive-article-date">
+        <a href="/2023/07/01/web%E7%89%B9%E6%95%88/" class="archive-article-date">
   	<time datetime="2023-07-01T05:55:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-01</time>
 </a>
         
@@ -181,10 +184,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大一还是能源院的时候选了一门计科的web课，那会儿对于写代码纯粹是一腔热血，虽然对于html各种语法都还不熟悉，参照着网上各种代码也能照葫芦画瓢地模仿、修改，最终实现自己想要的效果。这个流星雨特效就是参考了一个烟火特效的代码写出来的，可以说基本逻辑是差不多的。还记得是先看了很多遍别人的代码是怎么写的，函数又是怎么写的，之后修修补补改了一两个星期才做完的，最后拿去当web程序设计这门课的大作业之一。</p>
-<p>实现上没有什么特别的，就是效果比较好看，具体代码已经放到github中</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大一还是能源院的时候选了一门计科的web课，那会儿对于写代码纯粹是一腔热血，虽然对于html各种语法都还不熟悉，参照着网上各种代码也能照葫芦画瓢地模仿、修改，最终实现自己想要的效果。这个流星雨特效就是参考了一个烟火特效的代码写出来的，可以说基本逻辑是差不多的。还记得是先看了很多遍别人的代码是怎么写的，函数又是怎么写的，之后修修补补改了一两个星期才做完的，最后拿去当web程序设计这门课的大作业之一。之后又再次基础上完成了完全不同的烟火特效。</p>
+<p>烟火这个比流星雨那个更加复杂，设计了几种不同的模式，不过这里还要吐槽一下当时的自己，完全不懂内存的开辟和释放，运行时间一长就会越来越卡直到内存爆炸，那会还以为是电脑不行导致的😀</p>
+<p>效果都比较好看，具体代码已经放到github中</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ThatLastCrash/meteorshower.git">流星雨项目地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ThatLastCrash/firework.git">烟火项目地址</a></p>
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509930.png" alt="image-20230701150916777"></p>
 <p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509643.png" alt="image-20230701150936459"></p>
+<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011527827.png" alt="image-20230701152433191"></p>
+<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528963.png" alt="image-20230701152444120"></p>
+<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528959.png" alt="image-20230701152513079"></p>
+<h1 id="关于html动态效果的心得经验"><a href="#关于html动态效果的心得经验" class="headerlink" title="关于html动态效果的心得经验"></a>关于html动态效果的心得经验</h1><h3 id="一个好用的工具"><a href="#一个好用的工具" class="headerlink" title="一个好用的工具"></a>一个好用的工具</h3><p>一开始想到做动态效果的时候，我是直接上手就写，然而在没有经验的情况下，不仅bug频出，效果也不好，甚至完全做不出效果（一开始尝试的递归法动态樱花树以失败告终）。后来，我学习前辈的经验，找到了一个函数requestAnimationFrame，不仅省了时间，效果也很好。这样一来我需要考虑的就只有怎么丰富，完善我的效果。当然，我也看过很多炫酷的立体效果，那些几乎都是用了一些专门的插件。所以选择一个好用的工具很重要。</p>
+<h3 id="多学习别人的代码"><a href="#多学习别人的代码" class="headerlink" title="多学习别人的代码"></a>多学习别人的代码</h3><p>我认为，不管是html，js还是别的什么语言，学习别人的代码都是很有必要的。在什么都不懂或是知识匮乏的情况下，闭门造车是很愚蠢的行为。我一开始想要将樱花树代码改为动态的，一个人苦思冥想，试了很多方法都没有成功，后来看了别人的代码我才知道我一开始就用错了方法（不该用递归）。我当初学习烟花这个代码，也是第一次写这么长的代码，连着很多天从早到晚，一边学习一边自己写。虽然花了很长时间，但是效果很显著，通过在原本的代码上修修改改就能做出完全不同的效果，也可以把我心中的一些想法通过这样的框架实现出来（只用两个小时就自己做出流星雨效果），类似的动态效果也可以很快实现。</p>
+<h3 id="动态效果的一些用途"><a href="#动态效果的一些用途" class="headerlink" title="动态效果的一些用途"></a>动态效果的一些用途</h3><p>拿我自己举例，我将烟花效果用在了简历上，为了避免太乱，简化删除了很多效果，在加上了监测鼠标坐标的函数后，也增加了交互性，不仅漂亮而且有趣。很多有意思的网站也会有一些有趣的动态效果，都能大大增加网站的吸引力。</p>
 
       
 
@@ -219,7 +231,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js特效</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态特效</a>
         		</li>
       		
 		</ul>
@@ -286,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://thatlastcrash.github.io/2023/07/01/web%E7%89%B9%E6%95%88%E2%80%94%E2%80%94%E6%B5%81%E6%98%9F%E9%9B%A8/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://thatlastcrash.github.io/2023/07/01/web%E7%89%B9%E6%95%88/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,6 +311,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2023/07/01/%E5%8A%A8%E6%80%81%E7%BB%98%E5%88%B6%E6%A8%B1%E8%8A%B1%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          动态绘制樱花树
+        
+      </div>
+    </a>
   
   
     <a href="/2023/06/23/new-article/" id="article-nav-older" class="article-nav-link-wrap">
@@ -428,7 +449,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js特效</a>
+                <a href="javascript:void(0)" class="js-tag color5">动态特效</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">cv</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">人工智能</a>
               </li>
             
             <div class="clearfix"></div>
