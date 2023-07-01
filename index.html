@@ -178,169 +178,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>基于眼球追踪以及人脸姿态估计的监考系统</strong></p>
-<p>金玉洲1 胡叶民1</p>
-<p>1（南京师范大学计算机与电子信息学院 南京 210046）</p>
-<p><a href="mailto:1（3091459647@qq.com）"> （3091459647@qq.com）</a></p>
-<h4 id="Invigilation-System-Based-on-Eye-tracking-and-face-posture-estimation"><a href="#Invigilation-System-Based-on-Eye-tracking-and-face-posture-estimation" class="headerlink" title="Invigilation  System  Based  on Eye  tracking  and  face posture estimation"></a>Invigilation  System  Based  on Eye  tracking  and  face posture estimation</h4><p>Yuzhou Jin1 , Yemin Hu1</p>
-<p>1（<em>College of Computer and Electronic Information</em>, <em>Nanjing Normal University</em> , <em>Nanjing</em> 210046）</p>
-<p><strong>Abstract</strong> Due to the epidemic situation, online teaching is more frequent, and the most affected one is the examination problem, such as online examination form and how to ensure the fairness of online examination, that is, online examination needs to ensure the same invigilation strength as offline examination, and the traditional invigilation method needs real-time supervision of invigilators. However, due to the particularity of online examination, it can’t meet the requirements of ordinary invigilation, so the online invigilation system has solved this problem well. Online invigilation adopts many technologies, such as face detection, eye tracking, face posture estimation, etc., aiming at online invigilation through artificial intelligence. Firstly, face detection and matching, searching the registered information for pictures saved by keywords and identifying and matching them with trained face_recognition, entering the system after confirming that the information meets the requirements, and then making real-time judgment under the double detection of face posture estimation and eye tracking, Face posture estimation is mainly used to identify whether the supervised person’s face is facing beyond the screen, while eye tracking is to check whether the invigilator has the possibility of cheating by squinting his eyes.</p>
-<p><strong>Key words</strong> manual invigilation; face detection and matching; face pose estimation: eye tracking; test behavior prediction </p>
-<p>摘要 疫情影响，线上教学更加频繁，其中最受影响的是考试问题，如线上考试形式以及如何保证线上考试公平性，即线上考试需要保证与线下考试同等的监考力度，传统监考方式需要监考人员实时监督，但由于线上考试的特殊性，无法做到平常监考的要求，线上监考系统较为良好的解决了这一问题。线上监考采用人脸检测，眼球追踪，人脸姿态估计等诸多技术，旨在通过人工智能的方式进行在线监考，首先人脸检测与匹配，在注册的信息中搜索按关键字保存的图片并用已训练好的face_recognition进行识别与匹配，确认信息符合后进入系统，随后在人脸姿态估计与眼球追踪的双重检测下来进行实时判断，人脸姿态估计主要用以识别被监察者人脸朝向是否超出屏幕，而眼球追踪则是在人脸保持在屏幕内的时候检查被监考者是否有利用眼睛左右斜视从而作弊的可能。 </p>
-<p>关键词 人工智能监考；人脸检测与匹配；人脸姿态估计；眼球追踪；考试行为预测  </p>
-<p>线上考试的优点在于不会受地点影响，可以根据自身需要自由选择考试地点，但随之带来的是考试的公平性无法得到保障，线上监考不仅增加了监考老师的工作量同时也会以为各种原因出现多多少少的不公平现象。程序是从计算机视觉的姿态估计应用出发，不仅适用于线上监考，更可以扩展至其他计算机视觉应用，如驾驶行为提醒，视频分析，动作分析，人机交互[1]等。监视策略[2]主要包括信息与人脸输入匹配[3]，眼球追踪[4]，人脸姿态估计[5]。对于人脸识别与匹配的算法效率对比效果如表1所示，因此最终选用face_recognition[3]算法。对于眼球追踪主要基于3D标准人脸模型的68个点中的左眼球点。人脸姿态估计则通过数学技巧以及欧拉角的计算共同求得。</p>
-<p><strong>Table 1 Efficiency Comparison of Face Recognition and Matching Algorithms</strong></p>
-<p><strong>表1 人脸识别与匹配的算法效率对比</strong></p>
-<table>
-<thead>
-<tr>
-<th>策略</th>
-<th>复杂度</th>
-<th>性能</th>
-<th>识别率</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>LBPH[6]</td>
-<td>高</td>
-<td>高</td>
-<td>高</td>
-</tr>
-<tr>
-<td>Dlib</td>
-<td>低</td>
-<td>高</td>
-<td>低</td>
-</tr>
-<tr>
-<td>face_recognition[3]</td>
-<td>低</td>
-<td>高</td>
-<td>高</td>
-</tr>
-</tbody></table>
-<p>程序主要工作包括4个方面:</p>
-<p>\1) 首先是人脸检测与匹配算法face_recognition，在注册同时会采集人脸图像以便在下次登录时通过匹配来确定人脸输入图像与输入的信息相匹配;</p>
-<p>\2) 监视方法之一是眼球追踪，通过固定眼球的当前位置，追踪下一时间的眼球的活动轨迹，并在眼球活动异常的情况下做出相应措施;</p>
-<p>\3) 监视的另一方法是通过计算当前视线落点，并与屏幕中点进行比较，最后判断视线停留的地方;</p>
-<p>\4) 利用tkinter[7]构建界面元素，并将界面交互与数据存储，程序运行逻辑结合． </p>
-<h2 id="1-相关工作"><a href="#1-相关工作" class="headerlink" title="1 相关工作"></a>1 相关工作</h2><p>计算机视觉中的一大重要应用就是姿态估计，其中人脸姿态估计更是具有很多的应用场景。我们在人脸姿态估计的算法基础上进行拓展。</p>
-<p>随着线上教学的普及，智能监考应用就不断出现，如雨课堂，学习通，钉钉等等。每个的监考的主要算法都不尽相同。但都包含的是通过设备自带的摄像头等设备记录使用者的动作，分析音频等等，文献[2]总结了人脸识别技术在无人监考中的应用，和使用到的算法和思想。</p>
-<p>监考系统就基于文献[2]中提到的诸多方法主要包括人脸与眼球运动检测，在匹配完成后进入监考系统内时，首先是会通过对3D标准人脸进行一定的矩形变换从而与输入人脸重合，进而确定所有68个点在三维坐标下的位置，而人脸姿态估计就基于其中的一些数据点比如鼻子用于测量距离屏幕的距离，左眼用于实现眼球追踪，其他点如嘴等用于定位人脸以确定欧拉角。</p>
-<p>前后经过多次修改，主要有人脸识别算法的替换与优化，将opencv中的dlib人脸识别算法，替换为face_recognition算法。优化人脸姿态估计算法，在原有的欧拉角等的基础上，采用计算视线落点的方法，提高检测的准确度。</p>
-<h2 id="2-人脸识别"><a href="#2-人脸识别" class="headerlink" title="2 人脸识别"></a>2 人脸识别</h2><p>  在本节中，主要介绍人脸识别方法的原理与具体实现细节。</p>
-<h3 id="2-1-实现技术"><a href="#2-1-实现技术" class="headerlink" title="2.1 实现技术"></a>2.1 实现技术</h3><p>基于python的人脸识别库face_recognition。</p>
-<h3 id="2-2-face-recognition的识别原理"><a href="#2-2-face-recognition的识别原理" class="headerlink" title="2.2 face_recognition的识别原理"></a>2.2 face_recognition的识别原理</h3><p>(1)找出一张图片中的所有人脸</p>
-<p>首先对图像做简化处理：</p>
-<p>•     将图像转变为黑白图像。</p>
-<p>•     然后将人脸图像转变为如下梯度直方图（HOG）。</p>
-<p>定向梯度直方图，也称为HOG，是一个类似于Canny边缘检测器SIFT (比例不变和特征变换)的特征描述符。 它在计算机视觉和图像处理中用于目标检测。不同的人脸图像在光照不同的情况下会有比较明显的差异，但是局部的特征基本是差不多的。将人脸图像转换成HOG其实就是关注局部细节，同时会使图像更加简单，便于提取出图中所有人脸图像如图1所示。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011654016.jpg" alt="img"></p>
-<p>Fig. 1 Illustration of HOG</p>
-<p>图 1 定向梯度直方图(HOG)示意图</p>
-<p>(2)脸部仿射变换</p>
-<p>​    仿射变换，又称仿射映射，是指在几何中，一个向量空间进行一次线性变换并接上一个平移，变换为另一个向量空间。仿射变换是在几何上定义为两个向量空间之间的一个仿射变换或者仿射映射由一个非奇异的线性变换(运用一次函数进行的变换)接上一个平移变换组成。</p>
-<p>仿射变换可以用来解决图像中人脸姿势的问题，可以将各种姿态的人脸通过仿射变换转换成正确的姿势。首先提取出人脸的68个特征点，之后通过仿射变换，将人脸调整端正，以便于之后的识别。 </p>
-<p> <img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011654473.png" alt="image-20230701165417424"></p>
-<p>Fig. 2 Illustration of Facial Affine Transformation</p>
-<p>图 2 脸部仿射变换示意图</p>
-<p>(3)脸部编码</p>
-<p>  Face_recognition基于CNN网络，将人脸编码成128维的向量数据。通过深度学习技术训练大量的人脸数据，提取出各种人脸的特征数据，如图3所示，最终训练好的模型可以应对各种状态下的人脸图像，相比传统的人工定义特征的方式性能优势明显。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011654596.jpg" alt="img"></p>
-<p>Fig. 3 Illustration of Face Coding</p>
-<p>图 3 脸部编码示意图</p>
-<p>(4)分类识别</p>
-<p>  人脸图像编码完成后，还需要使用分类模型来判断这张脸是谁的，将其与数据库中的人脸进行比对，置信度在一定范围内时就认为是一个人。face_recognation采用KNN的模型对人脸进行分类，如图4所示。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011654510.jpg" alt="img"></p>
-<p>Fig. 4 Illustration of KNN</p>
-<p>图 4 KNN模型示意图</p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="3眼球跟踪"><a href="#3眼球跟踪" class="headerlink" title="3眼球跟踪"></a>3眼球跟踪</h1><p>在本节中，主要介绍眼球追踪的原理与具体实现细节。</p>
-<h2 id="3-1-实现技术"><a href="#3-1-实现技术" class="headerlink" title="3.1 实现技术"></a>3.1 实现技术</h2><p>基于OpenCV和numpy实现眼动检测。</p>
-<h2 id="3-2-实现原理"><a href="#3-2-实现原理" class="headerlink" title="3.2 实现原理"></a>3.2 实现原理</h2><p>(1)选择一个Roi(感兴趣的区域)</p>
-<p>设置一个Roi区域，可以将注意力放在这一块区域，避免了头发，鼻子，眼睫毛等干扰我们的判断。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011654658.jpg" alt="img"></p>
-<p>Fig. 5 Select an Roi.</p>
-<p>图 5 选择一个Roi </p>
-<p>(2)灰度变换</p>
-<p>  对于眼球的检测，我们有很多种方法，可以检测眼白、虹膜或瞳孔。但是其中最简单的方法还是检测瞳孔，我们将人眼图像转换成灰度格式，可以明显的发现，眼睛周围的区域比瞳孔更亮，所以我们将图像转换成灰度格式。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011655730.jpg" alt="img"></p>
-<p>Fig. 6 Illustration of Gray Scale Transformation</p>
-<p>图 6 灰度变换示意图</p>
-<p>(3)找到阈值，去除噪音</p>
-<p>转换成灰度格式后只提取瞳孔。从阈值中找到轮廓，之后简单去除噪音，选择面积最大的元素，这一块元素是瞳孔的可能性很大，忽略其余的。</p>
-<p>(4)提取瞳孔并显示</p>
-<p>最后把所有的东西都显示在屏幕上。</p>
-<h1 id="4-人脸姿态估计"><a href="#4-人脸姿态估计" class="headerlink" title="4 人脸姿态估计"></a>4 人脸姿态估计</h1><p>在本节中，主要介绍计算视线落点位置在人脸姿态估计中的原理与具体实现细节。</p>
-<h2 id="4-1-实现技术"><a href="#4-1-实现技术" class="headerlink" title="4.1 实现技术"></a>4.1 实现技术</h2><p>基于dlib中的68个人脸特征点，相似三角形原理以及空间几何</p>
-<h2 id="4-2-实现原理"><a href="#4-2-实现原理" class="headerlink" title="4.2 实现原理"></a>4.2 实现原理</h2><p>(1)获取距离屏幕距离</p>
-<p>通过getEyePixelDist函数获取准确的眼角像素距离再由get_distance函数利用相似三角形原理估算距离屏幕距离。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011655126.png" alt="相似三角形"></p>
-<p>Fig. 7 Illustration of Similar Triangles Estimated Distance</p>
-<p>图 7 相似三角形估算距离示意图</p>
-<p>(2)计算欧拉角(x轴，z轴)</p>
-<p>利用cv2.RQDecomp3x3函数返回欧拉角数组其中angles[0],angles[1]分别是对应于x轴与z轴的偏角</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011655196.png" alt="欧拉角"></p>
-<p>Fig. 8Illustration of Ola pt</p>
-<p>图 8 欧拉角示意图</p>
-<p>(3)计算视线落点与中心点的相对位置</p>
-<p>利用前面的距离以及欧拉角，将视线与屏幕中心点以及人脸所构成的三角形的三个点投影到x轴，z轴平面上以计算最后落点相较于中心点的相对位置。</p>
-<h1 id="5测试效果"><a href="#5测试效果" class="headerlink" title="5测试效果"></a>5测试效果</h1><h2 id="5-1正常情况"><a href="#5-1正常情况" class="headerlink" title="5.1正常情况"></a>5.1正常情况</h2><p>正常情况下所有的标签都会显示normal，表示此时，参与者的状态是在认真答题，且没有检测范围内的作弊行为的产生，同时也会显示欧拉角和距离，如图9所示。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011655635.png" alt="image-20230701165557570"></p>
-<p>Fig. 9 Illustration of Normal Circumstances</p>
-<p>图 9 正常情况下的示意图</p>
-<h2 id="5-2非正常情况"><a href="#5-2非正常情况" class="headerlink" title="5.2非正常情况"></a>5.2非正常情况</h2><p>(1) 脸部法线交点落在屏幕内但眼球斜视出屏     幕</p>
-<p>  这种情况是当参与者脸部保持正常状态但眼睛却向旁边过度斜视，这会被判定为可能存在的作弊行为，此时状态为warning，乱瞟为True。但欧拉角状态为normal，这提示，可能存在的作弊行为是由参与者过度斜视导致的，如图10所示。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011656850.jpg" alt="YYPEPOFJP2QB)O_RO6`Q`%L"></p>
-<p>Fig. 10 Illustration of Excessive Strabismus</p>
-<p>图 10 过度斜视下的示意图</p>
-<p>(2) 脸部法线交点未落在屏幕内</p>
-<p>当参与者脸部朝向过度偏向非屏幕中心方向时，会判定可能存在的作弊行为，此时状态为warning且欧拉角都为warning，此时即提示可能存在的作弊行为是由于脸部朝向违规导致的而与视线方向无关，如图11所示。</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011656134.png" alt="image-20230701165645059"></p>
-<h1 id="6总结"><a href="#6总结" class="headerlink" title="6总结"></a>6总结</h1><h2 id="6-1问题评估"><a href="#6-1问题评估" class="headerlink" title="6.1问题评估"></a>6.1问题评估</h2><p>人脸识别算法的优劣</p>
-<p>OpenCV的LBPH算法识别人脸</p>
-<p>优点：</p>
-<p>• 旋转不变性（局部二进制循环左移或右移其表示不变）</p>
-<p>• 一定程度上消除了光照变化的问题</p>
-<p>• 纹理特征维度低，计算速度快</p>
-<p>缺点：</p>
-<p>• 识别正确率比较低</p>
-<p>• 当光照变化不均匀时,各像素间的大小关系被破坏,对应的LBP算子也就发生了变化</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011657660.jpg" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011657108.jpg" alt="img"></p>
-<p>Fig. 11 LBPH Algorithm for Face Recognition</p>
-<p>图 11 LBPH算法识别脸部</p>
-<p>face_recognition库识别人脸</p>
-<p>优点：</p>
-<p>• 准确率有较大的提升</p>
-<p>• 识别效率也相较于LBPH更高</p>
-<p>缺点：</p>
-<p>• 效率虽然也有一定程度的提高，但是帧率仍然比较低</p>
-<p>• 判断人脸的准确率较高，但是有时检测不到人脸</p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011658644.jpg" alt="img"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011658938.jpg" alt="img"></p>
-<p>Fig.12 face_recognition Algorithm for Face Recognition</p>
-<p>图 12 face_recognition算法识别脸部 </p>
-<h2 id="6-2解决对策"><a href="#6-2解决对策" class="headerlink" title="6.2解决对策"></a>6.2解决对策</h2><p>(1)跳帧检测</p>
-<p>通过每隔几帧检测，肉眼感觉不出来，提升流畅度。</p>
-<p>(2)目标跟踪</p>
-<p>不需要对每一帧人脸都进行特征提取，而是跟踪每一张脸，若人脸出现变化时才更新。</p>
-<p>(3)有倾向性的训练</p>
-<p>训练数据倾向于亚洲人、戴眼镜的人可以比较显著的提高识别效率。</p>
-<h2 id="6-3前景展望"><a href="#6-3前景展望" class="headerlink" title="6.3前景展望"></a>6.3前景展望</h2><p>(1)监考系统</p>
-<p>检测考生的状态，是否在摄像头前，是否眼睛看向了屏幕外的地方，对其是否作弊进行判断，予以警告或处罚。</p>
-<p>(2)疲劳驾驶提醒系统</p>
-<p>检测司机的眼睛和脸部姿态，判断是否闭上了眼睛，并发出警报进行提醒。</p>
-<p><strong>作者贡献声明：</strong>作者一优化了人脸识别算法的实现，眼球追踪算法的编写以及程序的测试和调试和PPT的编写，作者二负责编写人脸姿态估计算法部分，UI界面设计以及逻辑，功能的整合并撰写论文。</p>
-<p><strong>参</strong> <strong>考</strong> <strong>文</strong> <strong>献</strong> </p>
-<p>[1] Yuxing Mao,Yanlai Yu,Beitao Han,et al.Human-machine information interaction based on face pose estimation[J]. Journal of Chongqing University, 2012, 35(1):1-6</p>
-<p>(毛玉星，于燕来，韩倍涛 等。应用人脸姿态估计实现人机信息交互[J] 重庆大学学报 2012, 35(1): 1-6)</p>
-<p>[2] Dongxin Wang,Hao Feng. Research on the Application of Face Recognition Technology in Unmanned Invigilator System[D]. Zhejiang University of Technology Master’s Thesis, 2012, 35(1): 1-78</p>
-<p>(王冬欣，冯浩。 人脸识别技术在无人监考系统中的应用研究[D] 浙江工业大学硕士学位论文 1-78) </p>
-<p>[3] CSDN Tutorial on using face_recognition face recognition module, v1.0 [OL].[2022-05-24]<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41010198/article/details/87106">https://blog.csdn.net/weixin_41010198/article/details/87106</a></p>
-<p>[4] Github GazeTracking, v1.0 [OL], [2022-05-25] https: &#x2F;&#x2F;github.com&#x2F;an toinelame&#x2F;GazeTracking </p>
-<p>[5] ZhiHu Face pose estimation algorithm sharing, v1.0 [OL] ,[2022-06-01] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138595937">https://zhuanlan.zhihu.com/p/138595937</a></p>
-<p>[6] CSDN Three classic face recognition algorithms _ Face recognition series II | FisherFace, LBPH algorithm and Dlib face detection, v1.0 [OL], [2022-5-27] <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39820910/article/details/110924287">https://blog.csdn.net/weixin_39820910/article/details/110924287</a></p>
-<p>[7] ZhiHu A large collection of windows tutorials for tkinter windows of Python GUI ,v1.0 [OL],[2022-5-28] <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81429343">https://zhuanlan.zhihu.com/p/81429343</a></p>
-
+<p>金玉洲1 胡叶民1**
+        
+          <a class="article-more-a" href="/2023/07/01/%E5%9F%BA%E4%BA%8E%E7%9C%BC%E7%90%83%E8%BF%BD%E8%B8%AA%E4%BB%A5%E5%8F%8A%E4%BA%BA%E8%84%B8%E5%A7%BF%E6%80%81%E4%BC%B0%E8%AE%A1%E7%9A%84%E7%9B%91%E8%80%83%E7%B3%BB%E7%BB%9F/#more">more >></a>
+        
       
 
       
@@ -430,9 +271,10 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大一自学python时做的一个小项目，那会发现python的turle库很好玩，可以绘制任何我给出轨迹逻辑的东西，就尝试做了这个动态绘制樱花树。现在看来我第一次接触到树就是在那个时候，和流星雨、烟火差不多，都是动态特效方面的，如果学过树的话就很好理解。</p>
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011615674.png" alt="image-20230701155229903"></p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="comment"># 画一棵樱花</span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time <span class="keyword">import</span> sleep</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="comment"># 画樱花的躯干(60,t)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tree</span>(<span class="params">branchLen,t</span>):</span><br><span class="line">    sleep(<span class="number">0.000005</span>)</span><br><span class="line">    <span class="keyword">if</span> branchLen &gt;<span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">10</span>&lt;= branchLen &lt;=<span class="number">15</span>:</span><br><span class="line">            <span class="keyword">if</span> random.randint(<span class="number">0</span>,<span class="number">2</span>)== <span class="number">0</span>:</span><br><span class="line">                t.color(<span class="string">&#x27;snow&#x27;</span>) <span class="comment"># 白</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                t.color(<span class="string">&#x27;lightcoral&#x27;</span>) <span class="comment"># 淡珊瑚色</span></span><br><span class="line">            t.pensize(branchLen / <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">elif</span> branchLen &lt;<span class="number">10</span>:</span><br><span class="line">            <span class="keyword">if</span> random.randint(<span class="number">0</span>,<span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">                t.color(<span class="string">&#x27;snow&#x27;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                t.color(<span class="string">&#x27;lightcoral&#x27;</span>) <span class="comment"># 淡珊瑚色</span></span><br><span class="line">            t.pensize(branchLen / <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            t.color(<span class="string">&#x27;sienna&#x27;</span>) <span class="comment"># 赭(zhě)色</span></span><br><span class="line">            t.pensize(branchLen / <span class="number">10</span>) <span class="comment"># 6</span></span><br><span class="line">        t.forward(branchLen)</span><br><span class="line">        a = <span class="number">1.5</span> * random.random()</span><br><span class="line">        t.right(<span class="number">20</span>*a)</span><br><span class="line">        b = <span class="number">1.5</span> * random.random()</span><br><span class="line">        tree(branchLen-<span class="number">10</span>*b, t)</span><br><span class="line">        t.left(<span class="number">40</span>*a)</span><br><span class="line">        tree(branchLen-<span class="number">10</span>*b, t)</span><br><span class="line">        </span><br><span class="line">        t.right(<span class="number">20</span>*a)</span><br><span class="line">        </span><br><span class="line">        t.up()</span><br><span class="line">        t.backward(branchLen)</span><br><span class="line">        t.down()</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 掉落的花瓣</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">petal</span>(<span class="params">m, t</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        a = <span class="number">300</span> - <span class="number">600</span> * random.random()</span><br><span class="line">        b = <span class="number">20</span> - <span class="number">40</span> * random.random()</span><br><span class="line">        t.up()</span><br><span class="line">        t.forward(b)</span><br><span class="line">        t.left(<span class="number">90</span>)</span><br><span class="line">        t.forward(a)</span><br><span class="line">        t.down()</span><br><span class="line">        t.color(<span class="string">&#x27;lightcoral&#x27;</span>) <span class="comment"># 淡珊瑚色</span></span><br><span class="line">        t.circle(<span class="number">1</span>)</span><br><span class="line">        t.up()</span><br><span class="line">        t.backward(a)</span><br><span class="line">        t.right(<span class="number">90</span>)</span><br><span class="line">        t.backward(b)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># 绘图区域</span></span><br><span class="line">    t = turtle.Turtle()</span><br><span class="line">    <span class="comment"># 画布大小</span></span><br><span class="line">    w = turtle.Screen()</span><br><span class="line">    t.hideturtle() <span class="comment"># 隐藏画笔</span></span><br><span class="line">    getscreen().tracer(<span class="number">5</span>,<span class="number">0</span>)</span><br><span class="line">    w.screensize(bg=<span class="string">&#x27;wheat&#x27;</span>) <span class="comment"># wheat小麦</span></span><br><span class="line">    t.left(<span class="number">90</span>)</span><br><span class="line">    t.up()</span><br><span class="line">    t.backward(<span class="number">300</span>)</span><br><span class="line">    t.down()</span><br><span class="line">    t.color(<span class="string">&quot;sienna&quot;</span>)</span><br><span class="line">    <span class="comment"># 画樱花的躯干</span></span><br><span class="line">    tree(<span class="number">80</span>,t)</span><br><span class="line">    <span class="comment"># 掉落的花瓣</span></span><br><span class="line">    petal(<span class="number">400</span>, t)</span><br><span class="line">    w.exitonclick()</span><br><span class="line"> </span><br><span class="line">main()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
+<p><strong>
+        
+          <a class="article-more-a" href="/2023/07/01/%E5%8A%A8%E6%80%81%E7%BB%98%E5%88%B6%E6%A8%B1%E8%8A%B1%E6%A0%91/#more">more >></a>
+        
       
 
       
@@ -522,14 +364,10 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/ThatLastCrash/meteorshower.git">流星雨项目地址</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ThatLastCrash/firework.git">烟火项目地址</a></p>
 <h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509930.png" alt="image-20230701150916777"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011509643.png" alt="image-20230701150936459"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011527827.png" alt="image-20230701152433191"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528963.png" alt="image-20230701152444120"></p>
-<p><img src="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307011528959.png" alt="image-20230701152513079"></p>
-<h1 id="关于html动态效果的心得经验"><a href="#关于html动态效果的心得经验" class="headerlink" title="关于html动态效果的心得经验"></a>关于html动态效果的心得经验</h1><h3 id="一个好用的工具"><a href="#一个好用的工具" class="headerlink" title="一个好用的工具"></a>一个好用的工具</h3><p>一开始想到做动态效果的时候，我是直接上手就写，然而在没有经验的情况下，不仅bug频出，效果也不好，甚至完全做不出效果（一开始尝试的递归法动态樱花树以失败告终）。后来，我学习前辈的经验，找到了一个函数requestAnimationFrame，不仅省了时间，效果也很好。这样一来我需要考虑的就只有怎么丰富，完善我的效果。当然，我也看过很多炫酷的立体效果，那些几乎都是用了一些专门的插件。所以选择一个好用的工具很重要。</p>
-<h3 id="多学习别人的代码"><a href="#多学习别人的代码" class="headerlink" title="多学习别人的代码"></a>多学习别人的代码</h3><p>我认为，不管是html，js还是别的什么语言，学习别人的代码都是很有必要的。在什么都不懂或是知识匮乏的情况下，闭门造车是很愚蠢的行为。我一开始想要将樱花树代码改为动态的，一个人苦思冥想，试了很多方法都没有成功，后来看了别人的代码我才知道我一开始就用错了方法（不该用递归）。我当初学习烟花这个代码，也是第一次写这么长的代码，连着很多天从早到晚，一边学习一边自己写。虽然花了很长时间，但是效果很显著，通过在原本的代码上修修改改就能做出完全不同的效果，也可以把我心中的一些想法通过这样的框架实现出来（只用两个小时就自己做出流星雨效果），类似的动态效果也可以很快实现。</p>
-<h3 id="动态效果的一些用途"><a href="#动态效果的一些用途" class="headerlink" title="动态效果的一些用途"></a>动态效果的一些用途</h3><p>拿我自己举例，我将烟花效果用在了简历上，为了避免太乱，简化删除了很多效果，在加上了监测鼠标坐标的函数后，也增加了交互性，不仅漂亮而且有趣。很多有意思的网站也会有一些有趣的动态效果，都能大大增加网站的吸引力。</p>
-
+<p><strong>
+        
+          <a class="article-more-a" href="/2023/07/01/web%E7%89%B9%E6%95%88/#more">more >></a>
+        
       
 
       
