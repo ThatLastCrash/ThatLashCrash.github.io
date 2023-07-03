@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://ThatLastCrash.github.io">
   <title>机器学习——数据预处理 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="机器学习数据预处理基础1.1 One-Hot编码任务介绍 使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容； 使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_； 将编码后的结果保存在encode_">
+  <meta name="description" content="机器学习数据预处理基础1.1 One-Hot编码任务介绍 使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容；  使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_；  将编码后的结果保存在encod">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习——数据预处理">
 <meta property="og:url" content="http://thatlastcrash.github.io/2023/07/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="机器学习数据预处理基础1.1 One-Hot编码任务介绍 使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容； 使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_； 将编码后的结果保存在encode_">
+<meta property="og:description" content="机器学习数据预处理基础1.1 One-Hot编码任务介绍 使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容；  使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_；  将编码后的结果保存在encod">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/3977774b70dd4e06a8510c1e3c317e5c84a8a74bcf3a45c085bbb5f7a85332ae">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/573d921570d34dc08c44f863ee8732f8d5816c88af7b467aa8cae7a2ce188129">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/a4729a315ee6483687f3a819d01d905b025fa5f90da04f3e893a7a80ce5e5107">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/40e316267fc542339a74291e8438e340109ece96fc2a439591b75414e12085d2">
 <meta property="article:published_time" content="2023-07-03T06:35:38.000Z">
-<meta property="article:modified_time" content="2023-07-03T06:37:27.514Z">
+<meta property="article:modified_time" content="2023-07-03T06:59:20.405Z">
 <meta property="article:author" content="玉">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -187,9 +187,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="机器学习数据预处理基础"><a href="#机器学习数据预处理基础" class="headerlink" title="机器学习数据预处理基础"></a>机器学习数据预处理基础</h1><h2 id="1-1-One-Hot编码"><a href="#1-1-One-Hot编码" class="headerlink" title="1.1 One-Hot编码"></a>1.1 One-Hot编码</h2><h2 id="任务介绍"><a href="#任务介绍" class="headerlink" title="任务介绍"></a>任务介绍</h2><ul>
-<li>使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容；</li>
-<li>使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_；</li>
-<li>将编码后的结果保存在encode_uc中，并输出变量的前5行内容。</li>
+<li><p>使用Pandas中的value_counts()函数，查看data中的特征User continent的取值类型， 并打印输出的内容；</p>
+</li>
+<li><p>使用pandas中的get_dummies()函数对data中的特征User continent进行One-Hot编码，参数prefix为User continent_；</p>
+</li>
+<li><p>将编码后的结果保存在encode_uc中，并输出变量的前5行内容。</p>
+<span id="more"></span></li>
 </ul>
 <h2 id="预期实验结果"><a href="#预期实验结果" class="headerlink" title="预期实验结果"></a>预期实验结果</h2><p><img src="https://ai-studio-static-online.cdn.bcebos.com/3977774b70dd4e06a8510c1e3c317e5c84a8a74bcf3a45c085bbb5f7a85332ae"></p>
 <blockquote>

@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://ThatLastCrash.github.io">
   <title>机器学习——kMeans | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="4.3-4.4 完整K-Means算法的实现及聚类结果评价任务 补全完整的K-Means算法代码 在数据集data.csv上评价 K-Means 算法的聚类结果 绘出质心与所属样本  预期实验结果  待补全代码   代码1：kMeans 聚类代码实现  1234567891011121314151617181920212223242526272829303132333435363738394041">
+  <meta name="description" content="4.3-4.4 完整K-Means算法的实现及聚类结果评价任务 补全完整的K-Means算法代码  在数据集data.csv上评价 K-Means 算法的聚类结果  绘出质心与所属样本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习——kMeans">
 <meta property="og:url" content="http://thatlastcrash.github.io/2023/07/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94Kmeans/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="4.3-4.4 完整K-Means算法的实现及聚类结果评价任务 补全完整的K-Means算法代码 在数据集data.csv上评价 K-Means 算法的聚类结果 绘出质心与所属样本  预期实验结果  待补全代码   代码1：kMeans 聚类代码实现  1234567891011121314151617181920212223242526272829303132333435363738394041">
+<meta property="og:description" content="4.3-4.4 完整K-Means算法的实现及聚类结果评价任务 补全完整的K-Means算法代码  在数据集data.csv上评价 K-Means 算法的聚类结果  绘出质心与所属样本">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/e0c537255b854d31ac169cd0d485a5f98deccd45b890433f9171a100ba5e93fe">
 <meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307031444833.png">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/a821093397774f2ca4358f16d96cec0bb60b0856c04141d8a4f4843e326b0177">
 <meta property="og:image" content="https://raw.githubusercontent.com/ThatLastCrash/picture/main/img/202307031444779.png">
 <meta property="article:published_time" content="2023-07-03T06:35:38.000Z">
-<meta property="article:modified_time" content="2023-07-03T06:44:23.441Z">
+<meta property="article:modified_time" content="2023-07-03T06:57:33.005Z">
 <meta property="article:author" content="玉">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -185,9 +185,12 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="4-3-4-4-完整K-Means算法的实现及聚类结果评价"><a href="#4-3-4-4-完整K-Means算法的实现及聚类结果评价" class="headerlink" title="4.3-4.4 完整K-Means算法的实现及聚类结果评价"></a>4.3-4.4 完整K-Means算法的实现及聚类结果评价</h2><h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><ul>
-<li>补全完整的K-Means算法代码</li>
-<li>在数据集data.csv上评价 K-Means 算法的聚类结果</li>
-<li>绘出质心与所属样本</li>
+<li><p>补全完整的K-Means算法代码</p>
+</li>
+<li><p>在数据集data.csv上评价 K-Means 算法的聚类结果</p>
+</li>
+<li><p>绘出质心与所属样本</p>
+<span id="more"></span></li>
 </ul>
 <h2 id="预期实验结果"><a href="#预期实验结果" class="headerlink" title="预期实验结果"></a>预期实验结果</h2><p><img src="https://ai-studio-static-online.cdn.bcebos.com/e0c537255b854d31ac169cd0d485a5f98deccd45b890433f9171a100ba5e93fe"></p>
 <blockquote>

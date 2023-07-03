@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://ThatLastCrash.github.io">
   <title>机器学习——贝叶斯定理 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="7.1 贝叶斯定理任务：给定如下的队伍信息  队0获胜的概率prob_win_0 &#x3D; 0.65 队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75 队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3  请计算队1在客场取胜的概率p(Y&#x3D;1|X&#x3D;0)，即prob_home_0_win_1，小数点保留三位。">
+  <meta name="description" content="7.1 贝叶斯定理任务：给定如下的队伍信息  队0获胜的概率prob_win_0 &#x3D; 0.65  队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75  队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习——贝叶斯定理">
 <meta property="og:url" content="http://thatlastcrash.github.io/2023/07/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%AE%9A%E7%90%86/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="7.1 贝叶斯定理任务：给定如下的队伍信息  队0获胜的概率prob_win_0 &#x3D; 0.65 队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75 队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3  请计算队1在客场取胜的概率p(Y&#x3D;1|X&#x3D;0)，即prob_home_0_win_1，小数点保留三位。">
+<meta property="og:description" content="7.1 贝叶斯定理任务：给定如下的队伍信息  队0获胜的概率prob_win_0 &#x3D; 0.65  队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75  队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/806acde5d9564b3180bf774abee0ad6256597ca2efd24297b5a202b8116b54b6">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/1ac27ed5ffac48b3a6b34dae55398bbe7038a70877694904984099a4c7771533">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/b034502c19114a0f939040a751003d53aac29901cda34524a8f3113d025e8f5b">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/9b876f11e7ce46b08352da01ebd518698363f0f132c44f7aa39430c9a43431d9">
 <meta property="article:published_time" content="2023-07-03T06:35:38.000Z">
-<meta property="article:modified_time" content="2023-07-03T06:46:32.591Z">
+<meta property="article:modified_time" content="2023-07-03T06:58:09.284Z">
 <meta property="article:author" content="玉">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -186,13 +186,16 @@
       
         <h2 id="7-1-贝叶斯定理"><a href="#7-1-贝叶斯定理" class="headerlink" title="7.1 贝叶斯定理"></a>7.1 贝叶斯定理</h2><h2 id="任务："><a href="#任务：" class="headerlink" title="任务："></a>任务：</h2><p>给定如下的队伍信息</p>
 <ul>
-<li>队0获胜的概率prob_win_0 &#x3D; 0.65</li>
-<li>队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75</li>
-<li>队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3<blockquote>
+<li><p>队0获胜的概率prob_win_0 &#x3D; 0.65</p>
+</li>
+<li><p>队1获胜时队1是主场的概率prob_win_1_home_1 &#x3D; 0.75</p>
+</li>
+<li><p>队0获胜时队1是主场的概率prob_win_0_home_1 &#x3D; 0.3</p>
+<span id="more"></span></li>
+</ul>
+<blockquote>
 <p> 请计算队1在客场取胜的概率p(Y&#x3D;1|X&#x3D;0)，即prob_home_0_win_1，小数点保留三位。</p>
 </blockquote>
-</li>
-</ul>
 <h2 id="预期结果"><a href="#预期结果" class="headerlink" title="预期结果"></a>预期结果</h2><p><img src="https://ai-studio-static-online.cdn.bcebos.com/806acde5d9564b3180bf774abee0ad6256597ca2efd24297b5a202b8116b54b6"></p>
 <blockquote>
 <p>待完善代码</p>

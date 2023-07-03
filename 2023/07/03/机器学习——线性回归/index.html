@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://ThatLastCrash.github.io">
   <title>机器学习——线性回归 | 个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实战演练 —— 线性回归2.1 一元线性回归任务介绍： 自定义一元回归函数linearRegression，输入参数为x和y的数组xArr和yArr，输出为参数w1和w0 使用美国医疗保险费数据insurance.csv的输入特征age和目标特征charges，根据linearRegression得到回归参数值w1和w0，并保留到小数点后两位 已知根据最小二乘法求得的参数值为   预期实验结果">
+  <meta name="description" content="实战演练 —— 线性回归2.1 一元线性回归任务介绍： 自定义一元回归函数linearRegression，输入参数为x和y的数组xArr和yArr，输出为参数w1和w0 使用美国医疗保险费数据insurance.csv的输入特征age和目标特征charges，根据linearRegression得到回归参数值w1和w0，并保留到小数点后两位 已知根据最小二乘法求得的参数值为">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习——线性回归">
 <meta property="og:url" content="http://thatlastcrash.github.io/2023/07/03/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="实战演练 —— 线性回归2.1 一元线性回归任务介绍： 自定义一元回归函数linearRegression，输入参数为x和y的数组xArr和yArr，输出为参数w1和w0 使用美国医疗保险费数据insurance.csv的输入特征age和目标特征charges，根据linearRegression得到回归参数值w1和w0，并保留到小数点后两位 已知根据最小二乘法求得的参数值为   预期实验结果">
+<meta property="og:description" content="实战演练 —— 线性回归2.1 一元线性回归任务介绍： 自定义一元回归函数linearRegression，输入参数为x和y的数组xArr和yArr，输出为参数w1和w0 使用美国医疗保险费数据insurance.csv的输入特征age和目标特征charges，根据linearRegression得到回归参数值w1和w0，并保留到小数点后两位 已知根据最小二乘法求得的参数值为">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/52d840bfcb3c4992a3afa2f281c03d8d3943a30e296a4b76a5a250a625d63b58">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/f945a62aaf0a4979877a9d3313e9dfc50b2bcc18c83c4fedbb978fdb85064a9c">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/62f74d7daa6c4c0692cc1a5c01299a7b49dbcb70eba34a8e9424e107cf4debae">
 <meta property="og:image" content="https://ai-studio-static-online.cdn.bcebos.com/93d8e390fbef401ca8acc78a3f2ff4791ec3ceccd890421f96a86a8b4b704ffe">
 <meta property="article:published_time" content="2023-07-03T06:35:38.000Z">
-<meta property="article:modified_time" content="2023-07-03T06:39:53.250Z">
+<meta property="article:modified_time" content="2023-07-03T06:59:30.741Z">
 <meta property="article:author" content="玉">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="机器学习">
@@ -191,6 +191,9 @@
 <li>已知根据最小二乘法求得的参数值为</li>
 </ul>
 <p><img src="https://ai-studio-static-online.cdn.bcebos.com/52d840bfcb3c4992a3afa2f281c03d8d3943a30e296a4b76a5a250a625d63b58"></p>
+<span id="more"></span>
+
+
 <h2 id="预期实验结果"><a href="#预期实验结果" class="headerlink" title="预期实验结果"></a>预期实验结果</h2><p><img src="https://ai-studio-static-online.cdn.bcebos.com/f945a62aaf0a4979877a9d3313e9dfc50b2bcc18c83c4fedbb978fdb85064a9c"></p>
 <blockquote>
 <p>实验代码</p>
